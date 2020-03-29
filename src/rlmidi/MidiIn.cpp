@@ -110,7 +110,7 @@ namespace rlmidi
                         velocity = (int)message[2];
                         midiChannel =  (byte1 & CHANNELMASK) + 1;
 
-                        if (midiChannel == MIDICHANNEL_ALL 
+                        if (m_midiChannel == MIDICHANNEL_ALL 
                             || midiChannel == m_midiChannel)
                         {
 

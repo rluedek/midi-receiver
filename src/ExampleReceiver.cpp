@@ -20,16 +20,16 @@ ExampleReceiver::ExampleReceiver()
 void ExampleReceiver::onNoteOn(int keyNumber, int velocity, int midiChannel)
 {
     std::cout   << "ExampleReceiver::onNoteOn: keyNumber " << keyNumber 
-                << "\tvelocity: " << velocity 
-                << "\tchannel: " << midiChannel 
+                << " velocity: " << velocity 
+                << " channel: " << midiChannel 
                 << std::endl;
 }
 
 void ExampleReceiver::onNoteOff(int keyNumber, int velocity, int midiChannel)
 {
     std::cout   << "ExampleReceiver::onNoteOff: keyNumber " << keyNumber 
-                << "\tvelocity: " << velocity 
-                << "\tchannel: " << midiChannel 
+                << " velocity: " << velocity 
+                << " channel: " << midiChannel 
                 << std::endl;
 }
 

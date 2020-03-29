@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
         try
         {
             portNumber = std::stoi(input);
-            midiIn.runMonitoring(portNumber, MIDICHANNEL_10);
+            midiIn.runMonitoring(portNumber, MIDICHANNEL_ALL);
         }
         catch(const std::exception& e)
         {
