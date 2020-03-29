@@ -11,7 +11,7 @@ An C++ example on how to receive midi event based using the rt midi library.
 **cmake:** The project uses cmake (version 3.5 or higher)
 
 ## Build and run on Linux
-- Download/clown repository
+- Download/clone repository
 - Enter "src" directory
 - Run cmake
 - Run make
