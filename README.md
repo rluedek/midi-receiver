@@ -1,5 +1,5 @@
 # rl-midi
-An example on how to receive midi events using the rt midi library.
+An C++ example on how to receive midi event based using the rt midi library.
 
 ## Prerequisites
 **Midi-Controller**: A midi controller should be connected to your hardware.
