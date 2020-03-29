@@ -2,6 +2,8 @@
 An example on how to receive midi events using the rt midi library.
 
 ## Prerequisites
+**Midi-Controller**: A midi controller should be connected to your hardware.
+
 **rtmidi:** This example uses the rtmidi library. Go visit https://www.music.mcgill.ca/~gary/rtmidi/ for further information. Download sources and follow the instactions for CMAKE and MAKE.
 
 **gcc:** The software is written in C++. GCC should be suitable for compilation
