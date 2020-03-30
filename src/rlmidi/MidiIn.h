@@ -12,7 +12,7 @@
 #define RL_MIDI_MIDI_IN
 
 #include "RtMidi.h"
-
+#include "MidiDevice.h"
 #include "IMidiInputListener.h"
 
 #include <iostream>
@@ -36,7 +36,7 @@ namespace rlmidi
          * @brief Start a monitoring thread. Sends events to @class{IMidiInputLister}
          * 
          * @param midiPort The port to listen on.
-         * @param midiChannel The midi Channel to listen on (default: MIDICHANEL_ALL)
+         * @param midiChannel The midi channel to listen on (default: MIDICHANEL_ALL)
          * @return true 
          * @return false 
          */
@@ -47,6 +47,8 @@ namespace rlmidi
          * 
          */
         void stopMonitoring();
+
+        void listDevices(std::vector<MidiDevice>& midiDevices);
 
         /**
          * @brief Set the Input Listener object
@@ -70,6 +72,8 @@ namespace rlmidi
          * 
          */
         void monitor();
+        std::shared_ptr<RtMidiIn> getInstance();
+
     };
 }
 

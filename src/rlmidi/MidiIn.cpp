@@ -22,7 +22,14 @@ namespace rlmidi
     MidiIn::MidiIn()
     : m_bRunning(false)
     {
-
+        try
+        {
+            m_pRtMidiIn = std::make_shared<RtMidiIn>();
+        }
+        catch(RtMidiError& error)
+        {
+            error.printMessage();
+        }
     }
 
 //--------------------------------------------------------------------------------
@@ -46,8 +53,6 @@ namespace rlmidi
 
         try
         {
-            m_pRtMidiIn = std::make_shared<RtMidiIn>();
-
             m_pRtMidiIn->openPort(midiPort);
         
             // Don't ignore sysex, timing, or active sensing messages.
@@ -75,6 +80,31 @@ namespace rlmidi
         if (m_pMonitorThread)
         {
             m_pMonitorThread->join();
+        }
+    }
+
+//--------------------------------------------------------------------------------
+
+    void MidiIn::listDevices(std::vector<MidiDevice>& midiDevices)
+    {
+        midiDevices.clear();
+
+        if (m_pRtMidiIn)
+        {
+            unsigned int nPorts = m_pRtMidiIn->getPortCount();
+            std::string portName;
+            for (unsigned int i = 0; i < nPorts; i++)
+            {
+                try
+                {
+                    portName = m_pRtMidiIn->getPortName(i);
+                    midiDevices.push_back(MidiDevice(portName, i));
+                }
+                catch (RtMidiError &error)
+                {
+                    error.printMessage();
+                }
+            }
         }
     }
 
@@ -132,5 +162,7 @@ namespace rlmidi
             }
             usleep(10000);
         }
+
+        m_pRtMidiIn->closePort();
     }
 }
