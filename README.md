@@ -1,15 +1,15 @@
-# rl-midi
-An example on how to receive midi events using the rt midi library.
+# rl-midi (Work in Progress)
+A C++ example and wrapper interface to receive midi event based using the rt midi library.
 
 ## Prerequisites
-**rtmidi:** This example uses the rtmidi library. Go visit https://www.music.mcgill.ca/~gary/rtmidi/ for further information. Download sources and follow the instactions for CMAKE and MAKE.
+**Midi-Controller**: A midi controller should be connected to your hardware.
 
-**gcc:** The software is written in C++. GCC should be suitable for compilation
+**rtmidi:** This example uses the rtmidi library. Go visit https://www.music.mcgill.ca/~gary/rtmidi/ from @thestk/rtmidi for further information. Download sources and follow the instructions for CMAKE and MAKE.
 
 **cmake:** The project uses cmake (version 3.5 or higher)
 
 ## Build and run on Linux
-- Download/clown repository
+- Download/clone repository
 - Enter "src" directory
 - Run cmake
 - Run make
