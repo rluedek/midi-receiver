@@ -10,6 +10,7 @@
 #include "rlmidi/MidiIn.h"
 #include "rlmidi/IMidiInputListener.h"
 #include "rlmidi/MidiChannelSelection.h"
+#include "rlmidi/MidiDevice.h"
 
 #include "ExampleReceiver.h"
 
@@ -33,26 +34,49 @@ int main(int argc, char *argv[])
     std::cout << "Midi Listener Example:" << std::endl << std::endl
     << "Usage:" << std::endl
     << "Type <Number> to change Midi-Port." << std::endl
-    << "Crtl-C to exit program." << std::endl << std::endl;
+    << "Type \"list\" to change Midi-Port." << std::endl
+    << "Crtl-C or \"exit\" to exit program." << std::endl << std::endl;
 
     while (true)
     {
+        std::cout << "Enter command: ";
         std::cin >> input;
 
-        try
+        if (input == "list")
         {
-            portNumber = std::stoi(input);
+            // list all available devices
+            std::vector<rlmidi::MidiDevice> devices;
+            midiIn.listDevices(devices);
+            if (devices.size() > 0)
+            {
+                std::cout << "Available midi input devices: " << std::endl;
+                for (int i = 0; i < devices.size(); i++)
+                {
+                    std::cout << "Port: " << devices[i].getPortNumber() << " Name: " << devices[i].getPortName() << std::endl;
+                }
+            }
+        }
+        else if (input == "exit")
+        {
+            std::cout << "Programm has ended..." << std::endl;
+            return 0;
+        }
+        else
+        {
+            try
+            {
+                portNumber = std::stoi(input);
+            }
+            catch(const std::exception& e)
+            {
+                std::cerr << e.what() << '\n';
+                continue;
+            }
+
+            std::cout << "Monitoring all midi channels on port " << input << std::endl;
             midiIn.runMonitoring(portNumber, MIDICHANNEL_ALL);
         }
-        catch(const std::exception& e)
-        {
-            std::cerr << e.what() << '\n';
-            continue;
-        }
-
     }
-
-    std::cout << std::endl << "Example ended...\n\n";
 
     return 0;
 }

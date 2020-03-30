@@ -13,6 +13,7 @@ add_executable(rlmidi
   main.cpp
   ExampleReceiver.cpp
   rlmidi/MidiIn.cpp
+  rlmidi/MidiDevice.cpp
 )
 
 target_link_libraries(rlmidi rtmidi pthread)
