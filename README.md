@@ -1,4 +1,4 @@
-# rl-midi (Work in Progress)
+# midi-receiver
 A C++ example and wrapper interface to receive midi event based using the rt midi library.
 
 ## Prerequisites
