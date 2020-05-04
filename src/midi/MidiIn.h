@@ -20,7 +20,7 @@
 #include <memory>
 #include <thread>
 
-namespace rlmidi
+namespace midi
 {
     class MidiIn
     {

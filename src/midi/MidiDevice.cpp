@@ -9,7 +9,7 @@
 
 #include "MidiDevice.h"
 
-namespace rlmidi
+namespace midi
 {
     MidiDevice::MidiDevice(std::string portName, unsigned int portNumber)
     : m_portName(portName)

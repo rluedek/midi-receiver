@@ -10,9 +10,9 @@
 #ifndef EXAMPLE_RECEIVER
 #define EXAMPLE_RECEIVER
 
-#include "rlmidi/IMidiInputListener.h"
+#include "midi/IMidiInputListener.h"
 
-class ExampleReceiver : public rlmidi::IMidiInputListener
+class ExampleReceiver : public midi::IMidiInputListener
 {
 public:
 

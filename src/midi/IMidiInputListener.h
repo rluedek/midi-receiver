@@ -14,7 +14,7 @@
 
 #include <vector>
 
-namespace rlmidi
+namespace midi
 {
     class IMidiInputListener
     {

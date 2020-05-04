@@ -17,7 +17,7 @@
 #define NOTEMASK        240
 #define CHANNELMASK     15
 
-namespace rlmidi
+namespace midi
 {
     MidiIn::MidiIn()
     : m_bRunning(false)

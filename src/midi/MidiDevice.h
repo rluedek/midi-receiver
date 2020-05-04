@@ -15,7 +15,7 @@
 #include <iostream>
 #include <stdint.h>
 
-namespace rlmidi
+namespace midi
 {
     class MidiDevice
     {

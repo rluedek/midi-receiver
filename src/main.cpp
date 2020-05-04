@@ -7,10 +7,10 @@
  * @copyright Copyright (c) 2020 - This code is licensed under MIT license (see LICENSE.txt for details)
  */
 
-#include "rlmidi/MidiIn.h"
-#include "rlmidi/IMidiInputListener.h"
-#include "rlmidi/MidiChannelSelection.h"
-#include "rlmidi/MidiDevice.h"
+#include "midi/MidiIn.h"
+#include "midi/IMidiInputListener.h"
+#include "midi/MidiChannelSelection.h"
+#include "midi/MidiDevice.h"
 
 #include "ExampleReceiver.h"
 
@@ -23,10 +23,10 @@ int main(int argc, char *argv[])
     unsigned int portNumber;
 
     // create an instance of the midi event class
-    rlmidi::MidiIn midiIn;
+    midi::MidiIn midiIn;
 
     // create a receiver that is able to receive midi events
-    std::shared_ptr<rlmidi::IMidiInputListener> receiver = std::make_shared<ExampleReceiver>();
+    std::shared_ptr<midi::IMidiInputListener> receiver = std::make_shared<ExampleReceiver>();
 
     // register receiver to midi input instance and wait for call backs
     midiIn.setInputListener(receiver);
@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
         if (input == "list")
         {
             // list all available devices
-            std::vector<rlmidi::MidiDevice> devices;
+            std::vector<midi::MidiDevice> devices;
             midiIn.listDevices(devices);
             if (devices.size() > 0)
             {
